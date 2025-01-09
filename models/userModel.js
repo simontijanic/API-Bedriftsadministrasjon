@@ -13,7 +13,6 @@ const userSchema = new mongoose.Schema(
     },
     number: {
       type: Number,
-      required: true,
       unique: true,
     },
     password: {
@@ -31,12 +30,10 @@ const userSchema = new mongoose.Schema(
     department: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Department",
-      required: true,
     },
     position: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Position",
-      required: true,
     },
     isActive: {
       type: Boolean,

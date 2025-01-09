@@ -5,19 +5,22 @@ const connectToDatabase = require("./controllers/databaseController")
 require('dotenv').config()
 
 const userRegister = async () => {
-    connectToDatabase()
     try {
-        const hashPassword = await bcrypt.hash("simo", 10)
+        console.log("Connecting to database")
+        await connectToDatabase()
+
+        const hashPassword = await bcrypt.hash("Admin", 10)
         const newUser = new User({
-            name: "Simon",
-            email: "simon@gmail.com",
+            name: "Geir Hilmersen",
+            email: "geir@afk.no",
             password: hashPassword,
             role: "admin"
         })
         await newUser.save()
-    } catch(err) {
+        console.log("User registered successfully")
+    } catch (err) {
         console.error("Error in userSeed.js", err)
     }
 }
 
-//userRegister();
+userRegister();

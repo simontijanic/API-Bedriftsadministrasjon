@@ -3,7 +3,9 @@ const User = require("../models/userModel")
 
 const connectToDatabase = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URL)
+        await mongoose.connect(process.env.MONGODB_URL, {
+            dbName: "Management"
+        })
         console.log("Connected to MongoDB");
     } catch(err){
         console.error("Database error", err)
