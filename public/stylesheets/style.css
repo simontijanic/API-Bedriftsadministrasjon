@@ -1,0 +1,528 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Racing+Sans+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --padding-size: 50px;
+  --padding-size-half: 25px;
+
+  /* Font Sizes */
+  --font-size-xs: 0.5rem; /* Extra Small */
+  --font-size-sm: 0.75rem; /* Small */
+  --font-size-md: 0.875rem; /* Medium (Base Size) */
+  --font-size-lg: 1rem; /* Large */
+  --font-size-xl: 1.25rem; /* Extra Large */
+  --font-size-xxl: 1.5rem; /* Double Extra Large */
+  --font-size-xxxl: 2rem; /* Triple Extra Large */
+
+  /* Color Palette */
+  --color-white: #ffffff;
+  --color-dark-blue: #1a2b3c; /* Dark Blue, adjust brightness as needed */
+  --color-light-gray: #f5f5f5; /* Light Gray for backgrounds */
+  --color-dark-gray: #2f3e4d; /* Dark Gray for text */
+  --color-accent-blue: #3a4f6b; /* Accent Blue for buttons or highlights */
+  --color-border-gray: #dcdcdc; /* Border color */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.montserrat {
+  font-family: "Montserrat", serif;
+}
+
+.main-container {
+  padding-left: var(--padding-size);
+  padding-right: var(--padding-size);
+  padding-top: var(--padding-size-half);
+  padding-bottom: var(--padding-size-half);
+
+  color: var(--color-dark-blue);
+
+  margin: 0; /* Remove default margin */
+  box-sizing: border-box; /* Include padding in the width/height calculation */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.section-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.login-container {
+  height: 80%;
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: var(--font-size-lg);
+}
+.login-container h1 {
+  font-size: var(--font-size-xxxl);
+}
+.login-container h3 {
+  width: 75%;
+  font-size: var(--font-size-xl);
+}
+
+.login-container form {
+  display: flex;
+  gap: var(--font-size-xxl);
+}
+
+.login-image-container {
+  height: 100%;
+  width: 50%;
+}
+.login-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.header {
+  width: 100%;
+  height: 75px;
+
+  padding: var(--padding-size-half);
+  box-sizing: border-box;
+
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--font-size-lg);
+}
+.user-container .image-container {
+  line-height: 0;
+  display: inline-block;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+}
+.user-container .image-container img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.user-container .user-box h1 {
+  font-size: var(--font-size-lg);
+}
+.user-container .user-box h2 {
+  font-size: var(--font-size-md);
+  font-weight: 400;
+}
+
+.user-container svg {
+  cursor: pointer;
+}
+.header-navigation {
+  display: flex;
+  flex-direction: row;
+  gap: var(--font-size-xxl);
+}
+.header-navigation a {
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  text-decoration: none;
+  flex: 1;
+}
+
+.dashboard-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: last baseline;
+  flex-direction: column;
+}
+
+.employee-list {
+  width: 100%;
+  height: 80%;
+  display: grid flex;
+  grid-template-columns: 1fr;
+  align-items: start;
+  justify-content: first baseline;
+}
+
+.employee-item {
+  height: 75px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto; /* Equal columns for name, number, role, and dynamic space for admin action */
+  align-items: center; /* Align items vertically */
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid rgb(243, 243, 243);
+  box-sizing: border-box;
+
+  font-size: var(--font-size-xs);
+}
+
+.employee-item a {
+  font-size: var(--font-size-md);
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--color-accent-blue);
+}
+
+.employee-navigation {
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.employee-temp {
+  width: 100%;
+  height: 50px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto; /* Equal columns for name, number, role, and dynamic space for admin action */
+  font-size: var(--font-size-xs);
+  border-bottom: 1px solid var(--color-light-gray);
+  box-sizing: border-box;
+}
+
+.employee-temp h2 {
+  flex: 1;
+  font-weight: 400;
+}
+
+.active {
+  font-weight: 800;
+}
+
+.calendar-container {
+  padding-top: var(--padding-size-half);
+  width: 100%;
+  height: 100%;
+}
+
+.weekly-schedule {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--font-size-sm);
+  height: 100%;
+  width: 100%;
+}
+.day-schedule {
+  padding: var(--font-size-xs);
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-schedule h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.day-schedule ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.day-schedule li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.day-schedule li:last-child {
+  border-bottom: none;
+}
+
+.day-schedule p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.no-schedule {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+.main-schedule-container,
+.assign-schedule-container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button,
+#create-user,
+.searchbar input {
+  border: none;
+  padding: var(--font-size-sm);
+  margin-bottom: 1rem;
+  text-decoration: none;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-accent-blue);
+  font-weight: 800;
+}
+
+.application-container {
+  margin-top: 2rem;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 columns of equal width */
+
+  overflow-y: scroll;
+
+  gap: 1rem;
+}
+
+.application {
+  height: auto;
+  width: auto;
+  padding: 1rem;
+
+  border: 1px solid var(--color-border-gray);
+}
+
+.application h3 {
+  font-weight: 400;
+}
+.application h2 {
+  font-weight: 600;
+}
+.application .forms {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  gap: 1rem;
+}
+
+#usersection {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+}
+
+#usersection .user {
+  text-align: center;
+}
+
+#usersection .user h1 {
+  margin: 5px 0;
+  font-size: 1.5rem;
+  color: var(--color-dark-blue);
+}
+
+#usersection .user img {
+  border-radius: 50%;
+  margin-top: 10px;
+  border: 3px solid var(--color-accent-blue);
+  width: 128px;
+  height: 128px;
+}
+/* Application creation form styling */
+#usersection .createappuser {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border-bottom: 2px solid var(--color-light-gray);
+}
+
+#usersection .createappuser h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--color-dark-blue);
+}
+
+#usersection form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+#usersection form select, form textarea, form button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#usersection form button {
+  background-color: var(--color-accent-blue);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#usersection form button:hover {
+  background-color: var(--color-dark-blue);
+}
+
+/* Applications posted styling */
+#usersection .userapps {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#usersection .userapps h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--color-dark-blue);
+}
+
+#usersection .application-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+}
+
+#usersection .application-card h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+#usersection .application-card p, .application-card small {
+  font-size: 0.9rem;
+  color: var(--color-dark-blue);
+}
+
+#usersection .application-card small {
+  display: block;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+
+.schedule-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.schedule-form .form-group {
+  margin-bottom: 15px;
+}
+
+.schedule-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--color-dark-blue);
+}
+
+.schedule-form input, select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: var(--color-dark-blue);
+}
+
+.schedule-form .form-actions {
+  text-align: center;
+}
+
+.schedule-form button {
+  background-color: var(--color-accent-blue);
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.schedule-form button:hover {
+  background-color: var(--color-dark-blue);
+}
+
+.create-user h1 {
+  font-size: var(--font-size-xxl);
+  color: var(--color-dark-blue);
+  text-align: center;
+}
+
+.create-user form {
+  display: grid;
+  gap: var(--font-size-xs);
+}
+
+.create-user .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-user label {
+  font-size: var(--font-size-md);
+  margin-bottom: 8px;
+}
+
+.create-user input, .create-user select {
+  padding: 10px;
+  border: 1px solid var(--color-border-gray);
+  border-radius: 5px;
+  font-size: var(--font-size-md);
+  margin-bottom: 12px;
+}
+
+.create-user input:focus, .create-user select:focus {
+  border-color: var(--color-accent-blue);
+  outline: none;
+}
+
+.create-user button.btn {
+  padding: 12px 20px;
+  background-color: var(--color-accent-blue);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+}
+
+.create-user button.btn:hover {
+  background-color: #2d3e56;
+}
+
+.create-user form .form-group p {
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-gray);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
