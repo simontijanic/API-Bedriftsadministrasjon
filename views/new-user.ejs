@@ -1,0 +1,74 @@
+<%- include('components/head') %>
+
+<section class="main-container">
+  <div class="create-user">
+    <h1>Opprett Ny Bruker</h1>
+    <form action="/create-user-post" method="POST" class="user-form">
+      <div class="form-group">
+        <label for="name">Navn:</label>
+        <input type="text" id="name" name="name" required placeholder="Skriv inn navn">
+      </div>
+  
+      <div class="form-group">
+        <label for="email">E-post:</label>
+        <input type="email" id="email" name="email" required placeholder="Skriv inn e-post">
+      </div>
+  
+      <div class="form-group">
+        <label for="number">Telefonnummer:</label>
+        <input type="tel" id="number" name="number" required placeholder="Skriv inn telefonnummer">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Passord:</label>
+        <input type="password" id="password" name="password" required placeholder="Skriv inn passord">
+      </div>
+  
+      <div class="form-group">
+        <label for="role">Rolle:</label>
+        <select name="role" id="role" required>
+          <option value="admin">Admin</option>
+          <option value="employee">Ansatt</option>
+        </select>
+      </div>
+  
+      <!-- Avdelingsfelt -->
+      <div class="form-group">
+        <label for="department">Avdeling:</label>
+        <select name="department" id="department">
+          <option value="">Velg avdeling</option>
+          <% departments.forEach(department => { %>
+            <option value="<%= department._id %>"><%= department.name %></option>
+          <% }) %>
+        </select>
+        <p>Eller</p>
+        <input type="text" id="newDepartment" name="newDepartment" placeholder="Skriv inn ny avdeling">
+      </div>
+  
+      <!-- Stillingfelt -->
+      <div class="form-group">
+        <label for="position">Stilling:</label>
+        <select name="position" id="position">
+          <option value="">Velg stilling</option>
+          <% positions.forEach(position => { %>
+            <option value="<%= position._id %>"><%= position.name %></option>
+          <% }) %>
+        </select>
+        <p>Eller</p>
+        <input type="text" id="newPosition" name="newPosition" placeholder="Skriv inn ny stilling">
+      </div>
+  
+      <div class="form-group">
+        <label for="isActive">Aktiv:</label>
+        <input type="checkbox" id="isActive" name="isActive" checked>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn">Opprett Bruker</button>
+      </div>
+    </form>
+  </div>
+
+</section>
+
+<%- include('components/foot') %>

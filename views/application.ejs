@@ -1,0 +1,44 @@
+<%- include('components/head') %>
+
+<section class="main-container">
+  <%- include('components/header') %>
+
+  <div class="application-container">
+    
+    <% applications.forEach(application => { %>
+      <div class="application">
+        <h3>Ansatt:</h3>
+        <h2><%= application.employee.name %> (<%= application.employee.role %>)</h2>
+        <br>
+        <h3>Kontakt:</h3>
+        <h2><%= application.employee.email || application.employee.number  %></h2>
+        <br>
+        <h3>Søknad:</h3>
+        <h2>Type: <%= application.type  %></h2>
+        <h2>Årsak: <%= application.reason  %></h2>
+        <br>
+        <h3>Status:</h3>
+        <h2><%= application.status  %></h2>
+        <br>
+        <h4>Opprettet: <%= application.createdAt  %></h4>
+        <br>
+        <div class="forms">
+          <form action="/applications/accept" method="POST">
+            <input type="hidden" name="applicationId" value="<%= application.id %>">
+            <button type="submit">Godta</button>
+          </form>
+          
+          <!-- Skjema for å avslå søknad -->
+          <form action="/applications/reject" method="POST">
+            <input type="hidden" name="applicationId" value="<%= application.id %>">
+            <button type="submit">Avslå</button>
+          </form>  
+        </div>
+        <%# application %>
+      </div>
+    <% }) %>
+  </div>
+
+</section>
+
+<%- include('components/foot') %>

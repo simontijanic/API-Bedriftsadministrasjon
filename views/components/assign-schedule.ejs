@@ -1,0 +1,34 @@
+<form action="/schedule-submit" method="POST" class="schedule-form">
+  <div class="form-group">
+    <label for="date">Dato:</label>
+    <input type="date" name="date" id="date" required />
+  </div>
+
+  <div class="form-group">
+    <label for="shiftStartTime">Starttid for skift:</label>
+    <input type="time" name="shiftStartTime" id="shiftStartTime" required />
+  </div>
+
+  <div class="form-group">
+    <label for="shiftEndTime">Sluttid for skift:</label>
+    <input type="time" name="shiftEndTime" id="shiftEndTime" required />
+  </div>
+
+  <div class="form-group">
+    <label for="task">Oppgave:</label>
+    <input type="text" name="task" id="task" placeholder="Angi oppgavedetaljer" required />
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <select name="status" id="status" required>
+      <option value="Scheduled">Planlagt</option>
+      <option value="Completed">Fullført</option>
+      <option value="Canceled">Avlyst</option>
+    </select>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit">Opprett tidsplan</button>
+  </div>
+</form>

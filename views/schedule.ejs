@@ -1,0 +1,18 @@
+<%- include('components/head') %>
+
+<section class="main-container">
+  <%- include('components/header') %>
+
+  <div class="calendar-container">
+    <button id="toggleScheduleButton">Opprett en tidsplan</button>
+    
+    <div id="main-schedule-container">
+        <%- include('components/main-schedule') %>
+      </div>
+      <div id="assign-schedule-container" style="display: none;">
+        <%- include('components/assign-schedule') %>
+      </div>
+  </div>
+</section>
+
+<%- include('components/foot') %>

@@ -1,0 +1,30 @@
+<header class="header">
+    <div>
+        <h1>Bedriftsadministrasjon</h1>
+    </div>
+    <div class="header-navigation">
+        <a class="<% if (path=="dashboard") { %> active <% } %>" href="/">Ansatte</a>
+        <a class="<% if (path=="schedule") { %> active <% } %>" href="/schedule">Kalender</a>
+        <%# <a href="">Jobs</a> %>
+        <% if (role == "admin") { %>
+            <a class="<% if (path=="applications") { %> active <% } %>" href="/applications">Søknader</a>
+        <% } %>
+    </div>
+    <div class="user-container">
+        <div class="image-container">
+            <a href="/user-profile/<%= employee._id %>"><img src="http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128" alt="Cloud Chen"></a>
+        </div>
+        <div class="user-box">
+            <h1><%= user.name %></h1>
+            <h2><%= role %></h2>
+        </div>
+        <form action="/logout" method="POST">
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <rect width="24" height="24" fill="none" />
+                    <path fill="#ffffff" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5z" />
+                </svg>
+            </button>
+        </form>
+    </div>
+</header>

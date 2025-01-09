@@ -1,0 +1,49 @@
+<%- include('components/head') %>
+
+<section class="main-container">
+  <%- include('components/header') %>
+
+  <div class="dashboard-container">
+    <div class="employee-navigation">
+      <form class="searchbar">
+        <input type="search" placeholder="Søk..." />
+      </form>
+
+      <% if (role == "admin") { %>
+        <a id="create-user" href="/create-user"> Ny Ansatt</a>
+      <% } %>
+    </div>
+
+    <div class="employee-temp">
+        <h2>Navn</h2>
+        <h2>Kontakt</h2>
+        <h2>Rolle</h2>
+        <h2>Status</h2>
+        <% if (role == "admin") { %>
+            <h2>Rediger</h2>
+        <% } %>
+    </div>
+
+    <div class="employee-list">
+        <% if (employees) { %>
+            <% employees.forEach(employee => { %>
+                <div class="employee-item">
+                    <a href="/user-profile/<%= employee._id %>" class="name"><%= employee.name %></a> 
+                    <h2 class="number"><%= employee.number || employee.email %></h2>
+                    <h2 class="role"><%= employee.role %></h2> 
+                    <h2 class="status"><%= employee.isActive %></h2> 
+                    <% if (role == "admin") { %>
+                        <a href="/edit-user/<%= employee._id %>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="#2f3e4d" d="M3 21v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15t.775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM17.6 7.8L19 6.4L17.6 5l-1.4 1.4z" />
+                            </svg>
+                        </a>    
+                    <% } %>
+                </div>            
+            <% }) %>
+        <% } %>        
+    </div>
+  </div>
+</section>
+
+<%- include('components/foot') %>

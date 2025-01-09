@@ -1,0 +1,61 @@
+<%- include('components/head') %>
+
+<section class="main-container">
+  <div id="usersection">
+    <div class="user">
+      <% if (employee) { %>
+        <h1><%= employee.name %></h1>
+        <h1><%= employee.email %></h1>
+        <h1><%= employee.role %></h1>
+        <img
+          src="http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128"
+          alt="Cloud Chen"
+        />
+        <% if (department && department.name && position && position.title) { %>
+          <h1><%= department.name %>: <%= position.title %></h1>
+        <% } else { %>
+          <h1>Informasjon om avdeling mangler</h1>
+        <% } %>
+      <% } else { %>
+        <p>Informasjon om ansatte mangler</p>
+      <% } %>
+    </div>
+
+    <div class="createappuser">
+      <% if (isCurrentUser) { %>
+        <h2>Opprett en søknad</h2>
+        <form action="/application-submit" method="POST">
+          <input type="hidden" name="employee" value="<%= employee._id %>" />
+
+          <label for="type">Søknadstype:</label>
+          <select name="type" id="type" required>
+            <option value="Sykepermisjon">Sykepermisjon</option>
+            <option value="Ferie">Ferie</option>
+            <option value="Personlig permisjon">Personlig permisjon</option>
+          </select>
+
+          <label for="description">Beskrivelse:</label>
+          <textarea name="description" id="description" required></textarea>
+
+          <button type="submit">Send inn</button>
+        </form>
+      <% } %>
+    </div>
+
+    <div class="userapps">
+      <% if (applications && applications.length > 0) { %>
+        <h2>Søknader sendt</h2>
+          <% applications.forEach(application => { %>
+            <div class="application-card">
+              <h3>Type: <%= application.type %></h3>
+              <p>Årsak: <%= application.reason %></p>
+              <p>Status: <%= application.status %></p>
+              <small>Opprettet: <%= application.createdAt.toDateString() %></small>
+            </div>
+          <% }) %>
+        <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('components/foot') %>
