@@ -1,0 +1,33 @@
+<%- include('components/head') %>
+
+<section class="main-container">
+  <%- include('components/header') %>
+
+  <div class="notat-container">
+    <div class="notat-card">
+      <h2>
+        <a href="/user-profile/<%= notatEmployee._id %>" class="employee-name-link">
+          <%= notatEmployee.name %>
+        </a> 
+        <% if (employeeDepartment) { %>
+          - <%= employeeDepartment.name %>
+        <% } %>
+      </h2>
+      <p><strong>Beskrivelse:</strong> <%= notat.task %></p>
+      <p><strong>Dato:</strong> <%= new Date(notat.date).toLocaleDateString('no-NO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+      <p><strong>Starttid:</strong> <%= new Date(notat.shiftStartTime).toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' }) %></p>
+      <p><strong>Sluttid:</strong> <%= new Date(notat.shiftEndTime).toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' }) %></p>
+      <p><strong>Opprettet:</strong> <%= new Date(notat.createdAt).toLocaleDateString('no-NO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+      <% if (isEmployeesNotat) { %>
+        <div class="notat-actions">
+          <form class="notat-actions" action="/schedule/notat/delete/<%= notat.id %>" method="POST">
+            <button type="submit" class="btn">Slett</button>
+          </form>    
+        </div>
+  
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('components/foot') %>

@@ -287,6 +287,7 @@ button,
   font-weight: 600;
   color: var(--color-accent-blue);
   font-weight: 800;
+  cursor: pointer;
 }
 
 .application-container {
@@ -478,27 +479,38 @@ button,
   text-align: center;
 }
 
+.create-user {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .create-user form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
   gap: var(--font-size-xs);
+  width: 100%;
+  height: 100%;
 }
 
 .create-user .form-group {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .create-user label {
   font-size: var(--font-size-md);
-  margin-bottom: 8px;
 }
 
 .create-user input, .create-user select {
-  padding: 10px;
   border: 1px solid var(--color-border-gray);
   border-radius: 5px;
   font-size: var(--font-size-md);
-  margin-bottom: 12px;
+  padding: var(--font-size-xs);
 }
 
 .create-user input:focus, .create-user select:focus {
@@ -507,7 +519,6 @@ button,
 }
 
 .create-user button.btn {
-  padding: 12px 20px;
   background-color: var(--color-accent-blue);
   color: var(--color-white);
   border: none;
@@ -525,4 +536,89 @@ button,
   color: var(--color-dark-gray);
   margin-top: 0;
   margin-bottom: 12px;
+}
+
+
+
+
+
+
+.edit-user h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.edit-user {
+  height: 100%;
+  width: 100%;
+}
+
+.edit-user form {
+  width: 100%;
+  height: 100%;
+}
+
+.edit-user .employee-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.edit-user .employee-details span {
+  font-weight: bold;
+}
+
+.edit-user .employee-profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit-user .employee-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.notat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.notat-card {
+  color: var(--color-white);
+  background-color: var(--color-dark-blue);
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.notat-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.notat-card a {
+  color: var(--color-white);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.notat-card p {
+  font-size: 1em;
+  margin: 5px 0;
+  color: var(--color-light-gray);
+}
+
+.notat-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }

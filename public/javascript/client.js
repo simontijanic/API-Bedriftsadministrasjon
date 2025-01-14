@@ -6,12 +6,12 @@ const assignScheduleContainer = document.getElementById('assign-schedule-contain
 toggleButton.addEventListener('click', function () {
   if (mainScheduleContainer.style.display === 'none') {
     // If main-schedule is hidden, show it and hide assign-schedule
-    toggleButton.innerText = "Oprett en tidslpan"
+    toggleButton.innerText = "Opprett"
     mainScheduleContainer.style.display = 'block';
     assignScheduleContainer.style.display = 'none';
   } else {
     // If main-schedule is visible, hide it and show assign-schedule
-    toggleButton.innerText = "Tidslpan"
+    toggleButton.innerText = "Tidsplan"
     mainScheduleContainer.style.display = 'none';
     assignScheduleContainer.style.display = 'block';
   }

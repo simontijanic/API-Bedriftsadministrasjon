@@ -13,6 +13,8 @@ const {
   createApplication,
   logout,
   getApiSchedule,
+  getScheduleNotat,
+  deleteScheduleNotat,
 } = require("../controllers/userController");
 const {
   editEmployee,
@@ -21,13 +23,17 @@ const {
   getCreateEmployee,
   acceptApplication,
   declineApplication,
+  deleteApplication,
 } = require("../controllers/adminController");
 
 router.get("/", validateToken, dashboard);
 router.get("/login", (req, res) => {
   res.render("login", { path: "login" });
 });
+
 router.get("/schedule", validateToken, getSchedule);
+router.get("/schedule/notat/:id", validateToken, getScheduleNotat)
+router.post("/schedule/notat/delete/:id", validateToken, deleteScheduleNotat)
 
 router.get("/edit-user/:id", validateToken, validateAdmin, editEmployee);
 router.get("/user-profile/:id", validateToken, getUserProfile);
@@ -46,6 +52,8 @@ router.get("/api/schedules", getApiSchedule);
 
 router.post('/applications/accept',validateToken, validateAdmin, acceptApplication);
 router.post('/applications/reject',validateToken, validateAdmin, declineApplication);
+router.post('/applications/delete',validateToken, validateAdmin, deleteApplication);
+
 
 router.post("/logout", logout);
 

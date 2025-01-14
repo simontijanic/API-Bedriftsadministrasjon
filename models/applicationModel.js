@@ -8,7 +8,7 @@ const applicationSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['Sick Leave', 'Vacation', 'Personal Leave', 'Other'], // Types of applications
+    enum: ['Ferie', 'Sykepermisjon', 'Personlig permisjon', 'Other'], // Types of applications
     required: true
   },
   reason: {

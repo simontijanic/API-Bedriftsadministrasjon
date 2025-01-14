@@ -9,7 +9,8 @@
       initialView: "dayGridWeek",
       height: "75vh",
       eventClick: function(info) {
-        alert('Event: ' + info.event.title);
+        const noteId = info.event.id
+        window.location.href = `/schedule/notat/${noteId}`
       },
       eventLimit: true, // show 'more' button if events exceed the limit
       events: async function (start, end, timezone) {

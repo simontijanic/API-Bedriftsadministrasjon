@@ -10,23 +10,26 @@ exports.editEmployee = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Check if the ID is present and valid
     if (!id || !mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).send("Invalid or missing user ID");
     }
 
-    const employee = await User.findById(id);
+    const employee = await User.findById(id).populate('department position');
+    const department = employee.department;
+    const position = employee.position;
+
 
     if (!employee) {
       return res.status(404).send("Employee not found");
     }
 
-    res.render("edit-user", { employee });
+    res.render("edit-user", { employee, department, position });
   } catch (err) {
     console.error(err);
     res.status(500).send("Error fetching employee details.");
   }
 };
+
 
 
 exports.getCreateEmployee = async (req,res) => {
@@ -130,10 +133,7 @@ exports.createUser = async (req, res) => {
       await newUser.save();
   
       // Send response
-      res.status(201).json({
-        message: "User created successfully!",
-        user: newUser,
-      });
+      res.redirect("/");
     } catch (error) {
       console.error('Error creating user:', error);
       res.status(500).json({ message: "Error creating user" });
@@ -157,4 +157,27 @@ exports.declineApplication = async (req, res) => {
   
   res.redirect('/applications'); 
 
+}
+
+exports.deleteApplication = async (req, res) => {
+  const { applicationId } = req.body;
+  
+  try {
+    const application = await Application.findById(applicationId);
+
+    if (!application) {
+      return res.status(404).send('Application not found');
+    }
+
+    // Only delete if status is 'Rejected'
+    if (application.status === 'Rejected') {
+      await application.deleteOne();
+      return res.redirect('/applications');
+    } else {
+      return res.redirect('/applications');
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('Server error');
+  }
 }

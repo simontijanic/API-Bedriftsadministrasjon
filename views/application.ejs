@@ -28,13 +28,16 @@
             <button type="submit">Godta</button>
           </form>
           
-          <!-- Skjema for å avslå søknad -->
           <form action="/applications/reject" method="POST">
             <input type="hidden" name="applicationId" value="<%= application.id %>">
             <button type="submit">Avslå</button>
           </form>  
+
+          <form action="/applications/delete" method="POST">
+            <input type="hidden" name="applicationId" value="<%= application.id %>">
+            <button type="submit">Slett</button>
+          </form>  
         </div>
-        <%# application %>
       </div>
     <% }) %>
   </div>

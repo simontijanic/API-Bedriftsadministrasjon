@@ -1,8 +1,51 @@
 <%- include('components/head') %>
 
 <section class="main-container">
-<h1>REDIGER ANSATT</h1>
-<%= employee  %>
+    <div class="edit-user">
+        <h1>REDIGER ANSATT</h1>
+        <form action="/updateEmployee/<%= employee._id %>" method="POST" enctype="multipart/form-data">
+          <div class="employee-details">
+            <div>
+              <div class="image-container">
+                <a href="/user-profile/<%= employee._id %>">
+                  <img src="<%= employee.profileImage || 'http://www.gravatar.com/avatar/9017a5f22556ae0eb7fb0710711ec125?s=128' %>" alt="Profile Image" />
+                </a>
+              </div>
+              <input type="file" name="profileImage" accept="image/*" />
+            </div>
+            <div>
+              <div class="employee-info">
+                <div>
+                  <span>Name:</span>
+                  <input type="text" name="name" value="<%= employee.name %>" required />
+                </div>
+                <div>
+                  <span>Email:</span>
+                  <input type="email" name="email" value="<%= employee.email %>" required />
+                </div>
+                <div>
+                  <span>Role:</span>
+                  <input type="text" name="role" value="<%= employee.role %>" readonly />
+                </div>
+              </div>
+              <div class="department">
+                <span>Department:</span>
+                <% if (department) { %>
+                  <input type="text" name="department" value="<%= department.name %>" required />
+                <% } %>
+              </div>
+              <div class="position">
+                <span>Position:</span>
+                <% if (position) { %>
+                  <input type="text" name="position" value="<%= position.title %>" required />
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
 </section>
 
 <%- include('components/foot') %>
