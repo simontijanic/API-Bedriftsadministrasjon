@@ -35,23 +35,13 @@
             <option value="<%= department._id %>"><%= department.name %></option>
           <% }) %>
         </select>
-        <p>Eller</p>
+        <br>
+        <p>Eller skriv inn <strong>avdeling</strong></p>
         <input type="text" id="newDepartment" name="newDepartment" placeholder="Skriv inn ny avdeling">
       </div>
       <div class="form-group">
         <label for="position">Stilling:</label>
-        <select name="position" id="position">
-          <option value="">Velg stilling</option>
-          <% positions.forEach(position => { %>
-            <option value="<%= position._id %>"><%= position.name %></option>
-          <% }) %>
-        </select>
-        <p>Eller</p>
         <input type="text" id="newPosition" name="newPosition" placeholder="Skriv inn ny stilling">
-      </div>
-      <div class="form-group">
-        <label for="isActive">Aktiv:</label>
-        <input type="checkbox" id="isActive" name="isActive" checked>
       </div>
       <div class="form-group">
         <button type="submit" class="btn">Opprett Bruker</button>

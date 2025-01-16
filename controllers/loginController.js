@@ -4,11 +4,11 @@ const bcrypt = require("bcryptjs")
 const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res, next) => {
-    const {name, password} = req.body
+    const {epost, password} = req.body
     
-    if (name && password) {
+    if (epost && password) {
 
-        const user = await User.findOne({name})
+        const user = await User.findOne({email: epost})
 
         if (!user) {
             console.error("Invalid user");

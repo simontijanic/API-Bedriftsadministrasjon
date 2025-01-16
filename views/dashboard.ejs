@@ -5,9 +5,6 @@
 
   <div class="dashboard-container">
     <div class="employee-navigation">
-      <form class="searchbar">
-        <input type="search" placeholder="Søk..." />
-      </form>
 
       <% if (role == "admin") { %>
         <a id="create-user" href="/create-user"> Ny Ansatt</a>
@@ -15,14 +12,14 @@
     </div>
 
     <div class="employee-temp">
-        <h2>Navn</h2>
-        <h2>Kontakt</h2>
-        <h2>Rolle</h2>
-        <h2>Status</h2>
-        <% if (role == "admin") { %>
-            <h2>Rediger</h2>
-        <% } %>
-    </div>
+      <h2>Navn</h2>
+      <h2>Kontakt</h2>
+      <h2>Rolle</h2>
+      <% if (role == "admin") { %>
+          <h2>Rediger</h2>
+      <% } %>
+  </div>
+  
 
     <div class="employee-list">
         <% if (employees) { %>
@@ -31,7 +28,6 @@
                     <a href="/user-profile/<%= employee._id %>" class="name"><%= employee.name %></a> 
                     <h2 class="number"><%= employee.number || employee.email %></h2>
                     <h2 class="role"><%= employee.role %></h2> 
-                    <h2 class="status"><%= employee.isActive %></h2> 
                     <% if (role == "admin") { %>
                         <a href="/edit-user/<%= employee._id %>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

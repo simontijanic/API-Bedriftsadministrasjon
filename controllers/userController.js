@@ -115,11 +115,7 @@ exports.postSchedule = async (req, res) => {
     await newSchedule.save();
     const employees = await User.find();
 
-    res.render("schedule", {
-      path: "schedule",
-      employees,
-      employee,
-    });
+    res.redirect("/schedule")
   } catch (error) {
     console.error(error);
     res
