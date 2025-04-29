@@ -9,7 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/core": "^6.1.17",
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/interaction": "^6.1.15",
     "bcryptjs": "^2.4.3",
